@@ -1,0 +1,48 @@
+{
+  "name": "@xuanmo/vue-color-picker",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/x-color-picker.umd.min.js",
+  "author": {
+    "name": "Xuanmo",
+    "email": "me@xuanmo.xin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/D-xuanmo/vue-color-picker"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name x-color-picker src/index.js",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.4.0",
+    "@vue/cli-plugin-eslint": "^4.4.0",
+    "@vue/cli-service": "^4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "keywords": ["color-picker", "vue"],
+  "license": "MIT"
+}

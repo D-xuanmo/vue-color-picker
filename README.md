@@ -4,6 +4,9 @@
 
 ```javascript
 import Vue from 'vue'
-import  XColorPicker from '@xuanmo/vue-color-picker'
+import XColorPicker from '@xuanmo/vue-color-picker'
 Vue.use(XColorPicker)
 ```
+
+## 示例
+![example.png](example.png)

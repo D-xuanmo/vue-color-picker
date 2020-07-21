@@ -5,9 +5,9 @@
       :style="{
         backgroundColor: value
       }"
-      @click.stop="showPanel = !showPanel"
+      @click.stop="_showPanelEvent"
     ></div>
-    <div v-show="showPanel" class="x-color-picker__panel">
+    <div v-show="showPanel" ref="panel" class="x-color-picker__panel" :style="panelStyle">
       <theme-color />
       <standard-color />
       <more-color />
@@ -49,7 +49,10 @@ export default {
 
   data() {
     return {
-      showPanel: false
+      showPanel: false,
+      panelStyle: {
+        left: 0
+      }
     }
   },
 
@@ -61,6 +64,16 @@ export default {
     _change(val) {
       this.$emit('input', val)
       this.$emit('change', val)
+    },
+
+    _showPanelEvent(e) {
+      this.showPanel = !this.showPanel
+      this.$nextTick(() => {
+        const windowWidth = window.innerWidth
+        if (e.pageX > windowWidth / 2) {
+          this.panelStyle.left = `${-this.$refs.panel.offsetWidth + 20}px`
+        }
+      })
     }
   }
 }
@@ -101,10 +114,11 @@ $border-radius: 4px;
   left: 0;
   z-index: 99999;
   padding: 3px 8px 8px 3px;
+  background: #fff;
   border: 1px solid #ebeef5;
   border-radius: $border-radius;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-  transform: translateY(5px);
+  transform: translate(0, 5px);
 }
 .x-color-picker__wrapper {
   &:not(:first-of-type) {
@@ -114,6 +128,8 @@ $border-radius: 4px;
 .x-color-picker__title {
   padding: 5px 0 0 5px;
   font-size: 14px;
+  text-align: left;
+  color: #000;
 }
 .x-color-picker__children {
   display: flex;

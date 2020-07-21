@@ -1,6 +1,6 @@
 {
   "name": "@xuanmo/vue-color-picker",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "private": false,
   "main": "dist/x-color-picker.umd.min.js",
   "author": {
